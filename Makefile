@@ -13,10 +13,11 @@ KVAL=10
 
 # TopKWordCount: TopKWordCount.jar
 #         hdfs dfs -rm -r -f $(WCOUT) $(WCTMP)
-#         hadoop jar $< $(basename $<) $(INPUTPATH) $(WCTMP) $(WCOUT) $(KVAL)
+        hadoop jar $< $(basename $<) $(INPUTPATH) $(WCTMP) $(WCOUT) $(KVAL)
 
 
-
+TFIDF: tfidf.jar
+	
 
 
 %.jar: %.java
