@@ -17,7 +17,7 @@ KVAL=10
 
 
 TFIDF: tfidf.jar
-	
+
 
 
 %.jar: %.java
