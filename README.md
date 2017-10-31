@@ -11,3 +11,8 @@ stochastic gradient decent.
 
 ## Version
 Hadoop 2.6.0
+
+## Dictionary Usage
+We build a index-word dictionary(tsv file) for word-to-number conversion.  
+The col index in Our Word-Document / TF-IDF Matrix are based on this index-word 
+dictionary. 

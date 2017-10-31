@@ -11,6 +11,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+import org.apache.hadoop.io.SortedMapWritable;
 
 public class Dictionary {
 
@@ -18,17 +19,21 @@ public class Dictionary {
     public static class TokenizerMapper
             extends Mapper<Object, Text, Text, IntWritable> {
 
-        private final static IntWritable one = new IntWritable(1);
+        private static HashSet<String> wordContainer = new HashSet<String>();
+
+
+//        private final static IntWritable one = new IntWritable(1);
         private Text word = new Text();
 
         public void map(Object key, Text value, Context context
         ) throws IOException, InterruptedException {
             StringTokenizer itr = new StringTokenizer(value.toString());
 
+            // dump all the words into the hashset.(remove deplicate)
             while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken());
-                context.write(word, one);
+                wordContainer.add(itr.nextToken());
             }
+
         }
     }
 
