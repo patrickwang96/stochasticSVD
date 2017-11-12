@@ -12,6 +12,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import org.apache.hadoop.io.SortedMapWritable;
+import java.util.regex.*;
 
 public class Dictionary {
 
@@ -20,8 +21,7 @@ public class Dictionary {
             extends Mapper<Object, Text, Text, IntWritable> {
 
         private static HashSet<String> wordContainer = new HashSet<String>();
-
-
+        
 //        private final static IntWritable one = new IntWritable(1);
         private Text word = new Text();
 
