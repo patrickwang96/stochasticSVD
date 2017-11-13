@@ -15,7 +15,7 @@ def main():
     # TODO to be changed to cityu hdfs filesystem's dataset
     # filePath = 'hdfs://0.0.0.0:9000/user/bitnami/group_project_data/data_simple.xml' 
 
-    filePath = 'hdfs://cs4480-101.cs.cityu.edu.hk:9000/user/ruochwang2/test.xml'
+    filePath = 'hdfs://cs4480-101.cs.cityu.edu.hk:9000/user/ruochwang2/ruochwang2_input_txt/PostHistory.xml'
 
     raw_data = sc.textFile(filePath)
 
@@ -113,7 +113,7 @@ def main():
 
     id_tfidf = id_freq_dicts.map(lambda i: (i[0], i[1] * idf_array))
 
-    outFilePath = 'hdfs://cs4480-101.cs.cityu.edu.hk:9000/user/ruochwang2/test_tfidf'
+    outFilePath = 'hdfs://cs4480-101.cs.cityu.edu.hk:9000/user/ruochwang2/real_tfidf'
 
     # output_rdd = id_tfidf.map(lambda i: (int(i[0]), str(i[1])))
 
