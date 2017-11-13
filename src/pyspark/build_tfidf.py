@@ -115,10 +115,15 @@ def main():
 
     outFilePath = 'hdfs://cs4480-101.cs.cityu.edu.hk:9000/user/ruochwang2/test_tfidf'
 
-    output_rdd = id_tfidf.map(lambda i: (int(i[0]), str(i[1])))
+    # output_rdd = id_tfidf.map(lambda i: (int(i[0]), str(i[1])))
+
+    def tocsv(numarray):
+        return ','.join(str(d) for d in numarray)
+
+    output_rdd = id_tfidf.map(lambda i: str(i[0]) + tocsv(i[1]))
 
     # output_rdd.saveAsHadoopFile(outFilePath, "org.apache.hadoop.mapred.SequenceFileOutputFormat")
-    output_rdd.saveAsTextFile('outFilePath')
+    output_rdd.saveAsTextFile(outFilePath)
 
 if __name__ == '__main__':
     main()
