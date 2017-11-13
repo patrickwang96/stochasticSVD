@@ -113,12 +113,12 @@ def main():
 
     id_tfidf = id_freq_dicts.map(lambda i: (i[0], i[1] * idf_array))
 
-    outFilePath = 'hdfs://cs4480-101.cs.cityu.edu.hk:9000/user/ruochwang2/test_tfidf.txt'
+    outFilePath = 'hdfs://cs4480-101.cs.cityu.edu.hk:9000/user/ruochwang2/test_tfidf'
 
     output_rdd = id_tfidf.map(lambda i: (int(i[0]), str(i[1])))
 
     # output_rdd.saveAsHadoopFile(outFilePath, "org.apache.hadoop.mapred.SequenceFileOutputFormat")
-    output_rdd.saveAsTextFile('/tmp/ruochwang2/out/test_data')
+    output_rdd.saveAsTextFile('outFilePath')
 
 if __name__ == '__main__':
     main()
